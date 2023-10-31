@@ -3,36 +3,43 @@ import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
-        int n = 1000000; // longitud del array a ordenar
+        int n = 100000; // Longitud del array a ordenar
         int[] randomArray = generateRandomArray(n);
 
-        long startTime2 = System.currentTimeMillis();
-        int[] QuickSortArray = QuickSort.quickSort(randomArray);
-        long endTime2 = System.currentTimeMillis();
+        // Medir el tiempo para QuickSort
+        long startTimeQuickSort = System.currentTimeMillis();
+        int[] QuickSortArray = QuickSort.quickSort(Arrays.copyOf(randomArray, n));
+        long endTimeQuickSort = System.currentTimeMillis();
+        long tiempoTranscurridoQuickSort = endTimeQuickSort - startTimeQuickSort;
+        System.out.println("El método QuickSort tomó " + tiempoTranscurridoQuickSort + " milisegundos.");
 
-        long tiempoTranscurrido2 = endTime2 - startTime2;
+        // Medir el tiempo para RadixSort
+        long startTimeRadixSort = System.currentTimeMillis();
+        int[] RadixSortArray = RadixSort.radixSort(Arrays.copyOf(randomArray, n));
+        long endTimeRadixSort = System.currentTimeMillis();
+        long tiempoTranscurridoRadixSort = endTimeRadixSort - startTimeRadixSort;
+        System.out.println("El método RadixSort tomó " + tiempoTranscurridoRadixSort + " milisegundos.");
 
-        System.out.println("El método QuickSort tomó " + tiempoTranscurrido2 + " milisegundos.");
-        long startTime = System.currentTimeMillis();
-        int[] RadixdArray = RadixSort.radixSort(randomArray);
-        long endTime = System.currentTimeMillis();
+        // Medir el tiempo para BubbleSort
+        long startTimeBubbleSort = System.currentTimeMillis();
+        int[] BubbleSortArray = BubbleSort.bubbleSort(Arrays.copyOf(randomArray, n));
+        long endTimeBubbleSort = System.currentTimeMillis();
+        long tiempoTranscurridoBubbleSort = endTimeBubbleSort - startTimeBubbleSort;
+        System.out.println("El método BubbleSort tomó " + tiempoTranscurridoBubbleSort + " milisegundos.");
 
-        long tiempoTranscurrido = endTime - startTime;
+        long startTimeSelectionSort = System.currentTimeMillis();
+        int[] SelectionSortArray = SelectionSort.selectionSort(Arrays.copyOf(randomArray, n));
+        long endTimeSelectionSort = System.currentTimeMillis();
+        long tiempoTranscurridoSelectionSort = endTimeSelectionSort - startTimeSelectionSort;
+        System.out.println("El método SelectionSort tomó " + tiempoTranscurridoSelectionSort + " milisegundos.");
 
-        System.out.println("El método Radix tomó " + tiempoTranscurrido + " milisegundos.");
-
-
-
-
-        //En caso de querer ver las listas y como estan ordenadas
-        //System.out.println("Original array: " + Arrays.toString(randomArray));
-        //System.out.println("Quicksort array: " + Arrays.toString(QuickSortArray));
-        //System.out.println("Quicksort array: " + Arrays.toString(RadixdArray));
-
-
-
-
+        long startTimeInsertionSort = System.currentTimeMillis();
+        int[] InsertionSortArray = InsertionSort.insertionSort(Arrays.copyOf(randomArray, n));
+        long endTimeInsertionSort = System.currentTimeMillis();
+        long tiempoTranscurridoInsertionSort = endTimeInsertionSort - startTimeInsertionSort;
+        System.out.println("El método InsertionSort tomó " + tiempoTranscurridoInsertionSort + " milisegundos.");
     }
+
     public static int[] generateRandomArray(int n) {
         int[] randomArray = new int[n];
         Random random = new Random();
@@ -44,3 +51,5 @@ public class Main {
         return randomArray;
     }
 }
+
+
