@@ -27,17 +27,33 @@ public class Main {
         long tiempoTranscurridoBubbleSort = endTimeBubbleSort - startTimeBubbleSort;
         System.out.println("El método BubbleSort tomó " + tiempoTranscurridoBubbleSort + " milisegundos.");
 
+        // Medir el tiempo para SelectionSort
         long startTimeSelectionSort = System.currentTimeMillis();
         int[] SelectionSortArray = SelectionSort.selectionSort(Arrays.copyOf(randomArray, n));
         long endTimeSelectionSort = System.currentTimeMillis();
         long tiempoTranscurridoSelectionSort = endTimeSelectionSort - startTimeSelectionSort;
         System.out.println("El método SelectionSort tomó " + tiempoTranscurridoSelectionSort + " milisegundos.");
 
+        // Medir el tiempo para InsertionSort
         long startTimeInsertionSort = System.currentTimeMillis();
         int[] InsertionSortArray = InsertionSort.insertionSort(Arrays.copyOf(randomArray, n));
         long endTimeInsertionSort = System.currentTimeMillis();
         long tiempoTranscurridoInsertionSort = endTimeInsertionSort - startTimeInsertionSort;
         System.out.println("El método InsertionSort tomó " + tiempoTranscurridoInsertionSort + " milisegundos.");
+
+        // Medir el tiempo para MergeSort
+        long startTimeMergeSort = System.currentTimeMillis();
+        int[] MergeSortArray = MergeSort.mergeSort(Arrays.copyOf(randomArray, n));
+        long endTimeMergeSort = System.currentTimeMillis();
+        long tiempoTranscurridoMergeSort = endTimeMergeSort - startTimeMergeSort;
+        System.out.println("El método MergeSort tomó " + tiempoTranscurridoMergeSort + " milisegundos.");
+
+        // Medir el tiempo para ShellSort
+        long startTimeShellSort = System.currentTimeMillis();
+        int[] ShellSortArray = ShellSort.shellSort(Arrays.copyOf(randomArray, n));
+        long endTimeShellSort = System.currentTimeMillis();
+        long tiempoTranscurridoShellSort = endTimeShellSort - startTimeShellSort;
+        System.out.println("El método ShellSort tomó " + tiempoTranscurridoShellSort + " milisegundos.");
     }
 
     public static int[] generateRandomArray(int n) {
